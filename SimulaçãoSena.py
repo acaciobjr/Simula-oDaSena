@@ -97,3 +97,16 @@ if L3() == []:
     print('não foi dessa vez')
 else:
     print("O numeros em comum foram: ", l1)
+
+if (len(l1) == 1):
+    print('você acertou 1 dezena.')
+if (len(l1) == 2):
+    print('você acertou 2 dezenas.')
+if (len(l1) == 3):
+    print('você acertou 3 dezenas.')
+if (len(l1) == 4):
+    print("Parabéns! Você acertou a quadra!")
+if (len(l1) == 5):
+    print("Parabéns! Foi quase. Você acertou a quina!")
+if (len(l1) == 6):
+    print("TEMOS UM NOVO MILIONÁRIO(A)! Você acertou a sena.")
