@@ -68,7 +68,9 @@ escolhidos = [int(dezena1), int(dezena2), int(dezena3), int(dezena4), int(dezena
 print("aguarde..")
 sleep(2)
 
+sorteio.sort()
 print("Os números sorteados foram: ", sorteio)
+escolhidos.sort()
 print("Você escolheu: ", escolhidos)
 
 def findDuplicate(self, nums):
@@ -96,7 +98,7 @@ def L3():
 if L3() == []:
     print('não foi dessa vez')
 else:
-    print("O numeros em comum foram: ", l1)
+    print("Os numeros em comum foram: ", l1)
 
 if (len(l1) == 1):
     print('você acertou 1 dezena.')
