@@ -1,9 +1,6 @@
 # Simula-oDaSena.py
-Simulação de um sorteio em range das dezenas da mega sena para aposta única do usuário.
+Simulation of a single interval draw of the mega sena for the user to bet.
 
-Nessa simulação o programa irá sortear previamente 6 dezenas entre 01 e 60 e perguntará ao usuário quais as 6 dezenas que ele escolhe para apostar.
-O programa não permite números com 3 algarismos e nem dezenas maiores que 60. Quando isso ocorre, o programa solicita que o usuário digite a dezena novamente.
-Após o usuário inserir os números, o programa mostrará as dezenas sorteadas e as escolhidas pelo usuário, comparando as duas listas e mostrando os números que existem em comum. Caso não haja nenhum número em comum, o programa mostrará uma mensagem de 'não foi dessa vez.'
-Para cada número em comum dentro das duas listas, o programa informa a quantidade de números acertados no sorteio e a partir de 4 dezenas, será informado se você ganhou a quadra, a quina ou a sena.
+In this programming the program will previously determine 60 among the user and he will choose between 01 and ask the destination as 6 chosen to choose. The program does not allow with 3 digits and even greater than 60. When this occurs, the program asks the user to type a again. After the user, enter the program that shows the user-defined numbers and as chosen as two and the compared ones that exist in common. If there is no common number, the program will show a 'not this time' message. For each number within the two lists, the common program informs the amount of numbers determined in the draw and one of 4 determined, will be informed if you won a quarter, a corner a sena.
 
-Esse programa possibilita um breve conhecimento de sorteios e abre a possibilidade para criação de mais jogos. Confira. 
+This program allows a brief knowledge of draws and opens the possibility to create more games. check out
