@@ -1,114 +1,58 @@
 from random import sample
 from time import sleep
 
-sorteio = sample(range(0, 60), 6)
-l1 = []
-
-
-print("Para esse sorteio você precisa escolher 6 dezenas diferentes entre 01 e 60.")
-print("Vamos lá!")
-
-while True:
-        dezena1 = input("primeira dezena: ")
-
-        if len(dezena1) != 2:
-            print('Dezenas possuem 2 algarismos. Digite novamente:')
-        elif (int(dezena1) > int(60)):
-                print('As dezenas precisam ser entre 01 e 60')
-                dezena1 = input("primeira dezena: ")
-        else: break
-while True:
-        dezena2 = input("segunda dezena: ")
-        if len(dezena2) !=2:
-            print('Dezenas possuem 2 algarismos. Digite novamente:')
-        elif (int(dezena2) > int(60)):
-                print('As dezenas precisam ser entre 01 e 60')
-                print('digite novamente.')
+def obter_numero_valido():
+    while True:
+        entrada = input("Digite uma dezena (01-60): ")
+        if len(entrada) != 2 or not entrada.isdigit() or int(entrada) < 1 or int(entrada) > 60:
+            print('Dezenas precisam ser de 01 a 60. Tente novamente.')
         else:
-            break
-while True:
-        dezena3 = input("terceira dezena: ")
-        if len(dezena3) !=2:
-            print('Dezenas possuem 2 algarismos. Digite novamente:')
-        elif (int(dezena3) > int(60)):
-                print('As dezenas precisam ser entre 01 e 60')
-                print('digite novamente.')
-        else:
-            break
-while True:
-        dezena4 = input("quarta dezena: ")
-        if len(dezena4) !=2:
-            print('Dezenas possuem 2 algarismos. Digite novamente:')
-        elif (int(dezena4) > int(60)):
-            print('As dezenas precisam ser entre 01 e 60')
-            print('digite novamente.')
-        else:
-            break
-while True:
-    dezena5 = input("quinta dezena: ")
-    if len(dezena5) !=2:
-        print('Dezenas possuem 2 algarismos. Digite novamente:')
-    elif (int(dezena5) > int(60)):
-        print('As dezenas precisam ser entre 01 e 60')
-        print('digite novamente.')
+            return int(entrada)
+
+def verificar_resultado(sorteio, escolhidos):
+    numeros_em_comum = [numero for numero in sorteio if numero in escolhidos]
+    numeros_em_comum.sort()
+
+    if not numeros_em_comum:
+        print('Não foi dessa vez.')
     else:
-        break
-while True:
-    dezena6 = input("sexta dezena: ")
-    if len(dezena6) !=2:
-        print('Dezenas possuem 2 algarismos. Digite novamente:')
-    elif (int(dezena6) > int(60)):
-        print('As dezenas precisam ser entre 01 e 60')
-        print('digite novamente.')
-    else:
-        break
+        print("Os números em comum foram:", numeros_em_comum)
 
+    acertos = len(numeros_em_comum)
+    if acertos == 1:
+        print('Você acertou 1 dezena.')
+    elif acertos == 2:
+        print('Você acertou 2 dezenas.')
+    elif acertos == 3:
+        print('Você acertou 3 dezenas.')
+    elif acertos == 4:
+        print('Parabéns! Você acertou a quadra!')
+    elif acertos == 5:
+        print('Parabéns! Foi quase. Você acertou a quina!')
+    elif acertos == 6:
+        print('TEMOS UM NOVO MILIONÁRIO(A)! Você acertou a sena.')
 
-escolhidos = [int(dezena1), int(dezena2), int(dezena3), int(dezena4), int(dezena5), int(dezena6)]
-print("aguarde..")
-sleep(2)
+def main():
+    print("Para esse sorteio, você precisa escolher 6 dezenas diferentes entre 01 e 60.")
+    print("Vamos lá!\n")
 
-sorteio.sort()
-print("Os números sorteados foram: ", sorteio)
-escolhidos.sort()
-print("Você escolheu: ", escolhidos)
+    sorteio = sample(range(1, 61), 6)
+    escolhidos = []
 
-def findDuplicate(self, nums):
-      hare = nums[0]
-      tortoise = nums[0]
-      while True:
-         hare = nums[nums[hare]]
-         tortoise = nums[tortoise]
-         if hare == tortoise:
-            break
-      ptr = nums[0]
-      while ptr!=tortoise:
-         ptr = nums[ptr]
-         tortoise = nums[tortoise]
-      return ptr
+    for i in range(1, 7):
+        print(f'Dezena {i}:')
+        dezena = obter_numero_valido()
+        escolhidos.append(dezena)
 
+    print("\nAguarde...")
+    sleep(2)
 
-def L3():
-    for i in sorteio:
-        if i in escolhidos:
-            l1.append(i)
-    return l1
+    sorteio.sort()
+    print("Os números sorteados foram:", sorteio)
+    escolhidos.sort()
+    print("Você escolheu:", escolhidos)
 
+    verificar_resultado(sorteio, escolhidos)
 
-if L3() == []:
-    print('não foi dessa vez')
-else:
-    print("Os numeros em comum foram: ", l1)
-
-if (len(l1) == 1):
-    print('você acertou 1 dezena.')
-if (len(l1) == 2):
-    print('você acertou 2 dezenas.')
-if (len(l1) == 3):
-    print('você acertou 3 dezenas.')
-if (len(l1) == 4):
-    print("Parabéns! Você acertou a quadra!")
-if (len(l1) == 5):
-    print("Parabéns! Foi quase. Você acertou a quina!")
-if (len(l1) == 6):
-    print("TEMOS UM NOVO MILIONÁRIO(A)! Você acertou a sena.")
+if __name__ == "__main__":
+    main()
